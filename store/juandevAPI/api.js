@@ -6,6 +6,12 @@ const juandevAPI = axios.create({
 function api_v1_login_create(payload) {
   return juandevAPI.post(`/api/v1/login/`, payload.data)
 }
+function api_v1_animal_list(payload) {
+  return juandevAPI.get(`/api/v1/animal/`)
+}
+function api_v1_animal_create(payload) {
+  return juandevAPI.post(`/api/v1/animal/`, payload.data)
+}
 function api_v1_signup_create(payload) {
   return juandevAPI.post(`/api/v1/signup/`, payload.data)
 }
@@ -30,6 +36,18 @@ function rest_auth_logout_retrieve(payload) {
 function rest_auth_logout_create(payload) {
   return juandevAPI.post(`/rest-auth/logout/`)
 }
+function api_v1_animal_retrieve(payload) {
+  return juandevAPI.get(`/api/v1/animal/${payload.id}/`)
+}
+function api_v1_animal_update(payload) {
+  return juandevAPI.put(`/api/v1/animal/${payload.id}/`, payload.data)
+}
+function api_v1_animal_partial_update(payload) {
+  return juandevAPI.patch(`/api/v1/animal/${payload.id}/`, payload.data)
+}
+function api_v1_animal_destroy(payload) {
+  return juandevAPI.delete(`/api/v1/animal/${payload.id}/`)
+}
 function rest_auth_registration_create(payload) {
   return juandevAPI.post(`/rest-auth/registration/`, payload.data)
 }
@@ -47,6 +65,8 @@ function rest_auth_registration_verify_email_create(payload) {
 }
 export const apiService = {
   api_v1_login_create,
+  api_v1_animal_list,
+  api_v1_animal_create,
   api_v1_signup_create,
   rest_auth_user_retrieve,
   rest_auth_user_update,
@@ -55,6 +75,10 @@ export const apiService = {
   rest_auth_login_create,
   rest_auth_logout_retrieve,
   rest_auth_logout_create,
+  api_v1_animal_retrieve,
+  api_v1_animal_update,
+  api_v1_animal_partial_update,
+  api_v1_animal_destroy,
   rest_auth_registration_create,
   rest_auth_password_reset_create,
   rest_auth_password_change_create,
