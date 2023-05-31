@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from home.models import Animal
-from .serializers import AnimalSerializer
+from home.models import Acma,Animal
+from .serializers import AcmaSerializer,AnimalSerializer
 from rest_framework import authentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.viewsets import ModelViewSet, ViewSet
@@ -37,3 +37,8 @@ class AnimalViewSet(viewsets.ModelViewSet):
     serializer_class = AnimalSerializer
     authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
     queryset = Animal.objects.all()
+
+class AcmaViewSet(viewsets.ModelViewSet):
+    serializer_class = AcmaSerializer
+    authentication_classes = (authentication.SessionAuthentication, authentication.TokenAuthentication)
+    queryset = Acma.objects.all()
