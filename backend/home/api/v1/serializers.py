@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from home.models import Acma,Animal
+from home.models import Acma,Animal,NewMo
 from django.http import HttpRequest
 from django.utils.translation import ugettext_lazy as _
 from allauth.account import app_settings as allauth_settings
@@ -86,4 +86,10 @@ class AcmaSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Acma
+        fields = "__all__"
+
+class NewMoSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = NewMo
         fields = "__all__"
